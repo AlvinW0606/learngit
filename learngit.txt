@@ -1,0 +1,65 @@
+cmd命令
+进入盘符  C:
+进入目录  cd <目录>
+显示目录  dir
+删除文件  del <文件>
+删除空目录  rd
+删除目录  deltrees
+
+1、创建版本库
+在准备好的目录下使用命令
+	git init
+得到
+	Initialized empty Git repository in D:/Study/Git/.git/
+
+2、添加文件
+git add learngit
+git commit -m "add learngit.txt"
+
+3、版本回退
+(1)查看已有的版本
+	git log
+	git log --pretty=oneline
+(2)回退到上一个版本Head^
+	git reset --hard HEAD^
+(3)回退到某个指定的版本（版本号前几位）
+	git reset --hard 1094a
+(4)查看命令历史
+	git reflog
+
+4、工作区与暂存区
+(1)查看当前状态
+	git status
+(2)提交修改
+	git add命令实际上就是把要提交的所有修改放到暂存区（Stage）
+	git commit一次性把暂存区的所有修改提交到分支
+
+5、撤销修改
+(1)丢弃工作区的修改
+git checkout -- readme.txt
+(2)丢弃已提交到暂存区的修改
+git reset HEAD readme.txt
+
+6、删除文件
+(1)直接从文件管理器中删除
+	rm readme.txt
+(2)版本库中删除
+	git rm readme.txt
+(3)删错回退
+	git checkout -- readme.txt
+
+7、远程仓库Github
+(1)创建SSH Keys
+	获得私钥和公钥(用户文件夹.ssh中)：ssh-keygen -t rsa -C "wazh0821@mail.ustc.edu.cn"
+	将公钥复制到Github账号的key中
+(2)将本地库导入Github中
+	a)登录Githu账号，建立新版本库
+	b)本地命令关联Github账号
+		git remote add origin git@github.com:Alvin0428/learngit.git
+	c)本地库推送到远程库上
+		首次推送：git push -u origin master
+		以后推送：git push origin master
+(3)从远程库克隆
+	从远程克隆一个本地库
+		git clone git@github.com:Alvin0428/learngit
+	
